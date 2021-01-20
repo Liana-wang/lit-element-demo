@@ -1,1 +1,1 @@
-export { MyButton } from './my-button/my-button'
+export { LitButton } from './lit-button'
