@@ -1,3 +1,20 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,58 +28,49 @@ import { LitElement, html, customElement, property, css } from 'lit-element';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-let LitButton = class LitButton extends LitElement {
-    constructor() {
-        super(...arguments);
+var LitButton = /** @class */ (function (_super) {
+    __extends(LitButton, _super);
+    function LitButton() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
         /**
          * 是否禁用
          */
-        this.disabled = false;
+        _this.disabled = false;
         /** 测试数据 */
-        this.data = [];
+        _this.data = [];
         /**
          * The number of times the button has been clicked.
          */
-        this.count = 0;
+        _this.count = 0;
+        return _this;
     }
-    render() {
-        return html `
-      <h1>Hello, ${JSON.stringify(this.data)}!</h1>
-      <p>count: ${this.count}</p>
-      <button @click=${this._onClick} part="button">
-        <slot></slot>
-      </button>
-    `;
-    }
-    _onClick() {
+    LitButton.prototype.render = function () {
+        return html(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      <h1>Hello, ", "!</h1>\n      <p>count: ", "</p>\n      <button @click=", " part=\"button\">\n        <slot></slot>\n      </button>\n    "], ["\n      <h1>Hello, ", "!</h1>\n      <p>count: ", "</p>\n      <button @click=", " part=\"button\">\n        <slot></slot>\n      </button>\n    "])), JSON.stringify(this.data), this.count, this._onClick);
+    };
+    LitButton.prototype._onClick = function () {
         this.count++;
-        let event = new CustomEvent('lit-event', {
+        var event = new CustomEvent('lit-event', {
             detail: {
                 count: this.count
             }
         });
         this.dispatchEvent(event);
-    }
-};
-LitButton.styles = css `
-    :host {
-      display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
-    }
-  `;
-__decorate([
-    property({ type: Boolean })
-], LitButton.prototype, "disabled", void 0);
-__decorate([
-    property({ type: Array })
-], LitButton.prototype, "data", void 0);
-__decorate([
-    property({ type: Number })
-], LitButton.prototype, "count", void 0);
-LitButton = __decorate([
-    customElement('lit-button')
-], LitButton);
+    };
+    LitButton.styles = css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    :host {\n      display: block;\n      border: solid 1px gray;\n      padding: 16px;\n      max-width: 800px;\n    }\n  "], ["\n    :host {\n      display: block;\n      border: solid 1px gray;\n      padding: 16px;\n      max-width: 800px;\n    }\n  "])));
+    __decorate([
+        property({ type: Boolean })
+    ], LitButton.prototype, "disabled");
+    __decorate([
+        property({ type: Array })
+    ], LitButton.prototype, "data");
+    __decorate([
+        property({ type: Number })
+    ], LitButton.prototype, "count");
+    LitButton = __decorate([
+        customElement('lit-button')
+    ], LitButton);
+    return LitButton;
+}(LitElement));
 export { LitButton };
+var templateObject_1, templateObject_2;
 //# sourceMappingURL=lit-button.js.map
