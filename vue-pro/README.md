@@ -1,4 +1,4 @@
-# vue-pro
+# vue2-app
 
 ## Project setup
 ```

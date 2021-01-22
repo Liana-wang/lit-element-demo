@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es3",
-    "lib": ["es2015", "es2016","es2017", "dom", "dom.iterable"],
+    "target": "es2017",
     "module": "es2015",
+    "lib": ["es2017", "dom", "dom.iterable"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "dist-transpiled",
-    "declarationDir": "dist/types",
+    "outDir": "./dist-transpiled",
+    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "strict": true,
     "noUnusedLocals": true,

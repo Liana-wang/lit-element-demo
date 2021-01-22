@@ -1,8 +1,7 @@
+/* eslint-disable */
 import Vue from 'vue'
-import '@ai/lit-element'
 import App from './App.vue'
-
-Vue.config.productionTip = false
+import '@ai/lit-ui'
 
 new Vue({
   render: h => h(App),

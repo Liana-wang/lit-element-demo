@@ -1,14 +1,44 @@
 <template>
-  <div class="hello">
-    <lit-button :data="JSON.stringify([{ id: '111', name: 'asdad' }])"
-      >点击</lit-button
-    >
+  <div>
+    <lit-button :data.prop="options" @litClick="myEvent">按钮</lit-button>
   </div>
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
+  data() {
+    return {
+      name: "",
+      options: [
+        {
+          id: "1",
+          name: "React",
+        },
+        {
+          id: "2",
+          name: "Vue",
+        },
+        {
+          id: "3",
+          name: "Ng",
+        },
+      ],
+      selected: {
+        id: "2",
+        name: "Vue",
+      },
+    };
+  },
+  methods: {
+    onValueChange: function ({ detail }) {
+      this.name = detail.value;
+      console.log(detail);
+    },
+    myEvent: function (event) {
+      console.log("event", event);
+    },
+  },
 };
 </script>
 

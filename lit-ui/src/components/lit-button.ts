@@ -45,7 +45,7 @@ export class LitButton extends LitElement {
 
   private _onClick() {
     this.count++;
-    let event = new CustomEvent('lit-event', {
+    let event = new CustomEvent('litClick', {
       detail: {
         count: this.count
       }

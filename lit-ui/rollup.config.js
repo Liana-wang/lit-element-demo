@@ -12,16 +12,17 @@
  * http://polymer.github.io/PATENTS.txt
  */
 
-import filesize from 'rollup-plugin-filesize';
-import { terser } from 'rollup-plugin-terser';
-import resolve from 'rollup-plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from 'rollup-plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+
+const env = process.env.NODE_ENV
 
 export default {
-  input: 'dist-transpiled/index.js',
+  input: './dist-transpiled/index.js',
   output: {
-    file: 'dist/index.js',
-    format: 'esm',
+    file: 'dist/index.cjs.js',
+    format: 'cjs',
     sourcemap: true
   },
   onwarn(warning) {
@@ -30,19 +31,8 @@ export default {
     }
   },
   plugins: [
-    replace({ 'Reflect.decorate': 'undefined' }),
     resolve(),
-    terser({
-      module: true,
-      warnings: true,
-      mangle: {
-        properties: {
-          regex: /^__/,
-        },
-      },
-    }),
-    filesize({
-      showBrotliSize: true,
-    }),
+    commonjs(),
+    babel({ exclude: '**/node_modules/**' }),
   ],
 };
