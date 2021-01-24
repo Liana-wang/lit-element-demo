@@ -2877,4 +2877,97 @@ __decorate([property({
 })], exports.LitButton.prototype, "count", void 0);
 
 exports.LitButton = __decorate([customElement('lit-button')], exports.LitButton);
+
+function _templateObject2$1() {
+  var data = _taggedTemplateLiteral(["\n    :host {\n      display: inline-block;\n      padding: 16px;\n      max-width: 800px;\n    }\n\n    .label {\n        display: inline-block;\n        margin-left: 10px;\n    }\n  "]);
+
+  _templateObject2$1 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$1() {
+  var data = _taggedTemplateLiteral(["\n        <input type=\"checkbox\" @click=", " checked=", "/>\n        <span class=\"label\"><slot></slot></span>\n    "]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var __decorate$1 = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+/**
+ * An example element.
+ *
+ * @slot - This element has a slot
+ * @csspart button - The button
+ */
+
+exports.LitCheckBox = /*#__PURE__*/function (_LitElement) {
+  _inherits(LitCheckBox, _LitElement);
+
+  var _super = _createSuper(LitCheckBox);
+
+  function LitCheckBox() {
+    var _this;
+
+    _classCallCheck(this, LitCheckBox);
+
+    _this = _super.apply(this, arguments);
+    /**
+     * 是否禁用
+     */
+
+    _this.disabled = false;
+    /**
+     * 是否checked
+     */
+
+    _this.checked = false;
+    return _this;
+  }
+
+  _createClass(LitCheckBox, [{
+    key: "render",
+    value: function render() {
+      return html(_templateObject$1(), this._onClick, this.checked);
+    }
+  }, {
+    key: "_onClick",
+    value: function _onClick() {
+      this.checked = !this.checked;
+      var event = new CustomEvent('litClick', {
+        detail: {
+          checked: this.checked
+        }
+      });
+      this.dispatchEvent(event);
+    }
+  }]);
+
+  return LitCheckBox;
+}(LitElement);
+
+exports.LitCheckBox.styles = css(_templateObject2$1());
+
+__decorate$1([property({
+  type: Boolean
+})], exports.LitCheckBox.prototype, "disabled", void 0);
+
+__decorate$1([property({
+  type: Boolean
+})], exports.LitCheckBox.prototype, "checked", void 0);
+
+exports.LitCheckBox = __decorate$1([customElement('lit-checkbox')], exports.LitCheckBox);
 //# sourceMappingURL=index.cjs.js.map

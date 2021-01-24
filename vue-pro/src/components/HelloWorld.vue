@@ -1,6 +1,7 @@
 <template>
   <div>
     <lit-button :data.prop="options" @litClick="myEvent">按钮</lit-button>
+    <lit-checkbox @litClick="checkClick">sdsddssd</lit-checkbox>
   </div>
 </template>
 
@@ -10,6 +11,7 @@ export default {
   data() {
     return {
       name: "",
+      checked: true,
       options: [
         {
           id: "1",
@@ -36,7 +38,10 @@ export default {
       console.log(detail);
     },
     myEvent: function (event) {
-      console.log("event", event);
+      console.log("click", event);
+    },
+    checkClick: function (event) {
+      console.log("check", event);
     },
   },
 };

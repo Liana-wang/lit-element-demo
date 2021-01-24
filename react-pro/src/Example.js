@@ -10,6 +10,7 @@ function Example() {
   return (
     <div className="item">
       <lit-button data={JSON.stringify(data)} litClick={handleClick}>按钮</lit-button>
+      <lit-checkbox>sdsdff</lit-checkbox>
     </div>
   );
 }
