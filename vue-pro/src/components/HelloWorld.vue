@@ -1,7 +1,18 @@
 <template>
   <div>
     <lit-button :data.prop="options" @litClick="myEvent">按钮</lit-button>
-    <lit-checkbox @litClick="checkClick">sdsddssd</lit-checkbox>
+    <div>
+      基本用法：
+      <lit-checkbox @litClick="checkClick" :checked="checked">
+        行行行
+      </lit-checkbox>
+    </div>
+    <div>
+      禁用：
+      <lit-checkbox @litClick="checkClick" :disabled="true">
+        哈哈哈
+      </lit-checkbox>
+    </div>
   </div>
 </template>
 
@@ -33,15 +44,13 @@ export default {
     };
   },
   methods: {
-    onValueChange: function ({ detail }) {
-      this.name = detail.value;
-      console.log(detail);
-    },
     myEvent: function (event) {
+      this.checked = false;
       console.log("click", event);
     },
-    checkClick: function (event) {
-      console.log("check", event);
+    checkClick: function ({ detail }) {
+      this.checked = detail.checked;
+      console.log("check", detail);
     },
   },
 };

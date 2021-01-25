@@ -2879,7 +2879,7 @@ __decorate([property({
 exports.LitButton = __decorate([customElement('lit-button')], exports.LitButton);
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteral(["\n    :host {\n      display: inline-block;\n      padding: 16px;\n      max-width: 800px;\n    }\n\n    .label {\n        display: inline-block;\n        margin-left: 10px;\n    }\n  "]);
+  var data = _taggedTemplateLiteral(["\n    :host {\n        display: inline-block;\n        padding: 16px;\n        max-width: 800px;\n        cursor: pointer;\n    }\n\n    .checkbox {\n        display: inline-block;\n        position: relative;\n        width: 14px;\n        height: 14px;\n        border: 1px solid #d3d4db;\n        border-radius: 2px;\n        box-sizing: border-box;\n        vertical-align: middle;\n        background: #fff;\n    }\n\n    .checkbox:hover {\n        border-color: #779eea;\n    }\n\n    .box-disabled {\n        background: rgba(228, 230, 237, 0.4);\n        border: 1px solid #d3d4db;\n        cursor: default;\n    }\n\n    .box-disabled:hover {\n        border-color: #d3d4db;\n    }\n\n    .checkbox-checked {\n        border-color: #779eea;\n        background: #779eea;\n    }\n\n    .checkbox-checked::after {\n        position: absolute;\n        left: 3px;\n        top: 0;\n        width: 4px;\n        height: 7px;\n        border: 2px solid #fff;\n        border-top: 0;\n        border-left: 0;\n        transform: rotate(45deg);\n        content: '';\n    }\n\n    .checkbox-input {\n        position: absolute;\n        top: 0;\n        right: 0;\n        bottom: 0;\n        left: 0;\n        padding: 0;\n        margin: 0;\n        opacity: 0;\n        cursor: default;\n    }\n\n    .label {\n        display: inline-block;\n    }\n  "]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -2889,7 +2889,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteral(["\n        <input type=\"checkbox\" @click=", " checked=", "/>\n        <span class=\"label\"><slot></slot></span>\n    "]);
+  var data = _taggedTemplateLiteral(["\n        <div @click=", ">\n            <span class=\"checkbox ", " ", "\">\n                <input class=\"checkbox-input ", "\" type=\"checkbox\" ?checked=", " ?disabled=\"", "\"/>\n            </span>\n            <span class=\"label\"><slot></slot></span>\n        </div>\n    "]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -2941,18 +2941,20 @@ exports.LitCheckBox = /*#__PURE__*/function (_LitElement) {
   _createClass(LitCheckBox, [{
     key: "render",
     value: function render() {
-      return html(_templateObject$1(), this._onClick, this.checked);
+      return html(_templateObject$1(), this._onClick, this.checked ? 'checkbox-checked' : '', this.disabled ? 'box-disabled' : '', this.disabled ? 'input-disabled' : '', this.checked, this.disabled);
     }
   }, {
     key: "_onClick",
     value: function _onClick() {
-      this.checked = !this.checked;
-      var event = new CustomEvent('litClick', {
-        detail: {
-          checked: this.checked
-        }
-      });
-      this.dispatchEvent(event);
+      if (!this.disabled) {
+        this.checked = !this.checked;
+        var event = new CustomEvent('litClick', {
+          detail: {
+            checked: this.checked
+          }
+        });
+        this.dispatchEvent(event);
+      }
     }
   }]);
 
