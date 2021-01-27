@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ng-test';
   name = ''
+  count = 0
 
   options = [
     {
@@ -36,6 +37,7 @@ export class AppComponent {
   isConfirm = false
 
   onClick(event: any) {
+    this.count = this.count + 1
     console.log(event)
   }
 

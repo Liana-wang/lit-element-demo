@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Example from './Example'
+import CheckExample from './CheckExample'
+import BtnExample from './BtnExample'
 
 function App() {
   return (
@@ -8,8 +9,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+      <h1>Lit-Element</h1>
       <div>
-        <Example />
+        <BtnExample />
+        <CheckExample />
       </div>
     </div>
   );

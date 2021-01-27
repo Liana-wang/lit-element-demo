@@ -2779,7 +2779,7 @@ LitElement['finalized'] = true;
 LitElement.render = render$1;
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    :host {\n      display: block;\n      border: solid 1px gray;\n      padding: 16px;\n      max-width: 800px;\n    }\n  "]);
+  var data = _taggedTemplateLiteral(["\n    :host {\n      display: inline-block;\n    }\n\n    .btn {\n      height: 30px;\n      padding: 0 8px;\n      border: none;\n      border-radius: 4px;\n      background: #6775CD;\n      color: #fff;\n      box-shadow: none;\n      line-height: normal;\n      text-align: center;\n      cursor: pointer;\n      outline: none;\n    }\n\n    .btn:hover {\n      filter: saturate(.9) brightness(1.2);\n    }\n  "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -2789,7 +2789,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n      <h1>Hello, ", "!</h1>\n      <p>count: ", "</p>\n      <button @click=", " part=\"button\">\n        <slot></slot>\n      </button>\n    "]);
+  var data = _taggedTemplateLiteral(["\n      <button class=\"btn\" @click=", " part=\"button\">\n        <slot></slot>\n      </button>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -2808,7 +2808,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 /**
- * An example element.
+ * button
  *
  * @slot - This element has a slot
  * @csspart button - The button
@@ -2830,31 +2830,18 @@ exports.LitButton = /*#__PURE__*/function (_LitElement) {
      */
 
     _this.disabled = false;
-    /** 测试数据 */
-
-    _this.data = [];
-    /**
-     * The number of times the button has been clicked.
-     */
-
-    _this.count = 0;
     return _this;
   }
 
   _createClass(LitButton, [{
     key: "render",
     value: function render() {
-      return html(_templateObject(), JSON.stringify(this.data), this.count, this._onClick);
+      return html(_templateObject(), this._onClick);
     }
   }, {
     key: "_onClick",
     value: function _onClick() {
-      this.count++;
-      var event = new CustomEvent('litClick', {
-        detail: {
-          count: this.count
-        }
-      });
+      var event = new CustomEvent('litClick');
       this.dispatchEvent(event);
     }
   }]);
@@ -2867,14 +2854,6 @@ exports.LitButton.styles = css(_templateObject2());
 __decorate([property({
   type: Boolean
 })], exports.LitButton.prototype, "disabled", void 0);
-
-__decorate([property({
-  type: Array
-})], exports.LitButton.prototype, "data", void 0);
-
-__decorate([property({
-  type: Number
-})], exports.LitButton.prototype, "count", void 0);
 
 exports.LitButton = __decorate([customElement('lit-button')], exports.LitButton);
 

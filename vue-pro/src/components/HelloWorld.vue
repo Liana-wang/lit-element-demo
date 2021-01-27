@@ -1,6 +1,9 @@
 <template>
   <div>
-    <lit-button :data.prop="options" @litClick="myEvent">按钮</lit-button>
+    <div>
+      <p>点击次数：{{ count }}</p>
+      <lit-button @litClick="myEvent">点击</lit-button>
+    </div>
     <div>
       基本用法：
       <lit-checkbox @litClick="checkClick" :checked="checked">
@@ -22,6 +25,7 @@ export default {
   data() {
     return {
       name: "",
+      count: 0,
       checked: true,
       options: [
         {
@@ -45,7 +49,7 @@ export default {
   },
   methods: {
     myEvent: function (event) {
-      this.checked = false;
+      this.count = this.count + 1;
       console.log("click", event);
     },
     checkClick: function ({ detail }) {

@@ -6,7 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, customElement, property, css } from 'lit-element';
 /**
- * An example element.
+ * button
  *
  * @slot - This element has a slot
  * @csspart button - The button
@@ -18,49 +18,45 @@ let LitButton = class LitButton extends LitElement {
          * 是否禁用
          */
         this.disabled = false;
-        /** 测试数据 */
-        this.data = [];
-        /**
-         * The number of times the button has been clicked.
-         */
-        this.count = 0;
     }
     render() {
         return html `
-      <h1>Hello, ${JSON.stringify(this.data)}!</h1>
-      <p>count: ${this.count}</p>
-      <button @click=${this._onClick} part="button">
+      <button class="btn" @click=${this._onClick} part="button">
         <slot></slot>
       </button>
     `;
     }
     _onClick() {
-        this.count++;
-        let event = new CustomEvent('litClick', {
-            detail: {
-                count: this.count
-            }
-        });
+        let event = new CustomEvent('litClick');
         this.dispatchEvent(event);
     }
 };
 LitButton.styles = css `
     :host {
-      display: block;
-      border: solid 1px gray;
-      padding: 16px;
-      max-width: 800px;
+      display: inline-block;
+    }
+
+    .btn {
+      height: 30px;
+      padding: 0 8px;
+      border: none;
+      border-radius: 4px;
+      background: #6775CD;
+      color: #fff;
+      box-shadow: none;
+      line-height: normal;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .btn:hover {
+      filter: saturate(.9) brightness(1.2);
     }
   `;
 __decorate([
     property({ type: Boolean })
 ], LitButton.prototype, "disabled", void 0);
-__decorate([
-    property({ type: Array })
-], LitButton.prototype, "data", void 0);
-__decorate([
-    property({ type: Number })
-], LitButton.prototype, "count", void 0);
 LitButton = __decorate([
     customElement('lit-button')
 ], LitButton);

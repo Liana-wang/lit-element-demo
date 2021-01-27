@@ -31,3 +31,26 @@
     transform: rotate(360deg);
   }
 }
+
+.item {
+  margin: 10px;
+}
+
+.btn {
+  margin: 0 5px;
+}
+
+.btn-origin {
+  height: 30px;
+  padding: 0px 8px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background: rgb(103, 117, 205);
+  color: rgb(255, 255, 255);
+  box-shadow: none;
+  line-height: normal;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}

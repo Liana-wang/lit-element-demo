@@ -77,7 +77,10 @@
   <span>Welcome Angular</span>
   <div class="content">
     <div class="item">
-      <lit-button [data]="options" (litClick)="onClick($event)">asdasd</lit-button>
+      <div>
+        <p>点击次数：{{count}}</p>
+        <lit-button (litClick)="onClick($event)">asdasd</lit-button>
+      </div>
       <div>
         基本用法: 
         <lit-checkbox>gggg</lit-checkbox>
