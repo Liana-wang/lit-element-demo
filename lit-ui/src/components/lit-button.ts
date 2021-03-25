@@ -28,7 +28,7 @@ export class LitButton extends LitElement {
     }
 
     .btn:hover {
-      filter: saturate(.9) brightness(1.2);
+      opacity: 0.8;
     }
   `;
 

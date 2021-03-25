@@ -11,14 +11,14 @@ function BtnExample() {
 		console.log(event)
 	}
 
-	useEffect(() => {
-		btnRef.current.addEventListener('litClick', handleClick)
-		console.log(btnRef)
+	// useEffect(() => {
+	// 	btnRef.current.addEventListener('litClick', handleClick)
+	// 	console.log(btnRef)
 
-		return () => {
-			btnRef.current.removeEventListener('litClick', handleClick)
-		}
-	}, [count])
+	// 	return () => {
+	// 		btnRef.current.removeEventListener('litClick', handleClick)
+	// 	}
+	// }, [count])
 
 	const renderData = () => {
 		let data = []
@@ -47,7 +47,8 @@ function BtnExample() {
 		<div className="item">
 			<div>
 				<p>点击次数：{count}</p>
-				<lit-button ref={btnRef}>点击</lit-button>
+				{/* <lit-button ref={btnRef}>点击</lit-button> */}
+				<lit-button onLitClick={() => console.log('aaaa')}>点击</lit-button>
 				{renderData()}
 			</div>
 		</div>

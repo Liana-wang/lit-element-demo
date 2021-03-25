@@ -2,10 +2,9 @@
   "name": "@ai/lit-ui",
   "version": "0.0.0",
   "description": "A simple web component",
-  "module": "dist/index.js",
-  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
-  "type": "module",
   "scripts": {
     "build": "npm run clean && tsc && rollup --config rollup.config.js",
     "bundle": "rollup --config rollup.config.js",
@@ -13,6 +12,9 @@
     "serve": "es-dev-server --node-resolve --watch"
   },
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "babel": "^6.23.0",
+    "core-js": "^3.9.1",
     "lit-element": "^2.4.0"
   },
   "devDependencies": {
@@ -35,8 +37,11 @@
     "rimraf": "^3.0.2",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-filesize": "^7.0.0",
     "rollup-plugin-terser": "^5.3.0",
+    "tslib": "^2.1.0",
     "typescript": "^3.8.3",
     "web-component-analyzer": "^1.0.3"
   }

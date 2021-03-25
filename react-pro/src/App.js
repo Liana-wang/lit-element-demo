@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import CheckExample from './CheckExample'
+// import CheckExample from './CheckExample'
 import BtnExample from './BtnExample'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <h1>Lit-Element</h1>
       <div>
         <BtnExample />
-        <CheckExample />
+        {/* <CheckExample /> */}
       </div>
     </div>
   );
